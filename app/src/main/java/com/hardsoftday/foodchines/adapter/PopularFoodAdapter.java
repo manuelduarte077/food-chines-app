@@ -1,6 +1,7 @@
 package com.hardsoftday.foodchines.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hardsoftday.foodchines.DetailsActivity;
 import com.hardsoftday.foodchines.R;
 import com.hardsoftday.foodchines.model.PopularFood;
 
@@ -41,6 +43,14 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
         holder.foodImagen.setImageResource(popularFoodList.get(position).getImagenUrl());
         holder.name.setText(popularFoodList.get(position).getName());
         holder.price.setText(popularFoodList.get(position).getPrice());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, DetailsActivity.class);
+                context.startActivity(i);
+            }
+        });
 
     }
 
